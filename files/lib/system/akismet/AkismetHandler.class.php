@@ -2,8 +2,10 @@
 namespace wcf\system\akismet;
 
 use wcf\data\package\PackageCache;
+use wcf\system\cache\builder\ApplicationCacheBuilder;
 use wcf\system\exception\UserInputException;
 use wcf\util\HTTPRequest;
+use wcf\util\StringUtil;
 
 /**
  * Handles Akismet support.
@@ -27,6 +29,12 @@ class AkismetHandler extends SingletonFactory {
 	 * @var string
 	 */
 	protected $userAgent = '';
+
+	/**
+	 * application cache
+	 * @var array
+	 */
+	protected $applicationURL = null;
 
 	// API constants
 	const API_BASE_DOMAIN = 'rest.akismet.com';
@@ -53,7 +61,7 @@ class AkismetHandler extends SingletonFactory {
 	const REPLY_SUBMIT_SUCCESS = 'Thanks for making the web a better place.';
 
 	// error codes
-	const ERROR_TIMEOUT = 0;
+	const ERROR_HTTP = 0;
 
 	/**
 	 * @see	wcf\system\SingletonFactory::init()
@@ -65,6 +73,10 @@ class AkismetHandler extends SingletonFactory {
 		$packageVersion = PackageCache::getInstance()->getPackage($packageID)->packageVersion;
 
 		$this->userAgent = 'WoltLab Community Framework/'.WCF_VERSION.' | Akismet/'.$packageVersion;
+
+		$appCache = ApplicationCacheBuilder::getInstance()->getData();
+
+		$this->applicationURL = $appCache['application'][$appCache['primary']]->getPageURL();
 	}
 
 	/**
@@ -82,12 +94,44 @@ class AkismetHandler extends SingletonFactory {
 		return 'http://'.$this->apiKey.'.'.self::API_BASE_DOMAIN.'/'.self::API_VERSION.'/'.$action;
 	}
 
-	protected function makeRequest(/* options */) {
-		// TODO: implement stub method
+	/**
+	 * Makes the requests to the akismet API.
+	 * 
+	 * @param string $action
+	 * @param array $params
+	 * @return string
+	 */
+	protected function makeRequest($action, array $params) {
+		$url = $this->getApiURL($action);
+
+		$request = new HTTPRequest($url, array(), $params);
+		$request->addHeader('User-Agent', $this->userAgent);
+
+		try {
+			$request->execute();
+			$reply = $request->getReply();
+			$akismetResponse = explode("\n", $reply['body']);
+
+			return StringUtil::trim($akismetResponse[0]);
+		}
+		catch (SystemException $e) {
+			return self::ERROR_HTTP;
+		}
 	}
 
+	/**
+	 * Verifies the the given API key
+	 * 
+	 * @param string $apiKey
+	 * @return boolean
+	 */
 	public function verifyAPIKey($apiKey) {
-		// TODO: implement stub method
+		$response = $this->makeRequest(self::ACTION_VERIFY_KEY, array(
+			'key' => $apiKey,
+			'blog' => $this->applicationURL,
+		));
+
+		return ($response == self::REPLY_KEY_VALID);
 	}
 
 	public function check(/* options */) {
