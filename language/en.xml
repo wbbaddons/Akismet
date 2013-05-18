@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/language.xsd" languagecode="en">
+	<!-- ACP -->
+	<category name="wcf.acp.option">
+		<item name="wcf.acp.option.akismet_api_key"><![CDATA[API key]]></item>
+		<item name="wcf.acp.option.akismet_api_key.description"><![CDATA[You need to get an API key from the Akismet site: <a href="https://akismet.com/signup/">https://akismet.com/signup/</a>]]></item>
+		<item name="wcf.acp.option.module_system_akismet"><![CDATA[Akismet]]></item>
+		<item name="wcf.acp.option.module_system_akismet.description"><![CDATA[This module does spam checking for messages, signatures and wall entries with the <a href="https://akismet.com/">Akismet service</a>.]]></item>
+	</category>
+</language>

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<package name="info.codingcorner.wcf.akismet" xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/package.xsd">
+	<packageinformation>
+		<packagename>Akismet</packagename>
+		<packagedescription>This package implements spam checking for messages, signatures and wall entries with the Akismet service.</packagedescription>
+		<packagedescription language="de">Mit diesem Paket werden Nachrichten, Signaturen und Pinnwandeinträge mit dem Akismet Service auf Spam überprüft.</packagedescription>
+		<version>1.0.0 Alpha 1</version>
+		<date>2013-05-18</date>
+	</packageinformation>
+
+	<authorinformation>
+		<author>Markus Bartz (RouL)</author>
+		<authorurl>http://codingcorner.info/</authorurl>
+	</authorinformation>
+
+	<requiredpackages>
+		<requiredpackage minversion="2.0.0 Alpha 1">com.woltlab.wcf</requiredpackage>
+		<requiredpackage minversion="1.0.0 Alpha 1">com.woltlab.wcf.message</requiredpackage>
+		<requiredpackage minversion="1.0.0 Alpha 1">com.woltlab.wcf.user</requiredpackage>
+		<requiredpackage minversion="1.0.0 Alpha 1">com.woltlab.wcf.moderation</requiredpackage>
+	</requiredpackages>
+
+	<instructions type="install">
+		<!-- <instruction type="sql">install.sql</instruction> -->
+		<instruction type="option">option.xml</instruction>
+		<!-- <instruction type="userGroupOption">userGroupOption.xml</instruction>
+		<instruction type="acpTemplate">acptemplates.tar</instruction>
+		<instruction type="file">files.tar</instruction>
+		<instruction type="acpMenu">acpMenu.xml</instruction> -->
+		<instruction type="language">language/*.xml</instruction>
+		<!-- <instruction type="template">templates.tar</instruction>
+		<instruction type="templateListener">templateListener.xml</instruction>
+		<instruction type="eventListener">eventListener.xml</instruction> -->
+	</instructions>
+</package>
