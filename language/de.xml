@@ -3,8 +3,8 @@
 	<!-- ACP -->
 	<category name="wcf.acp.option">
 		<item name="wcf.acp.option.akismet_api_key"><![CDATA[API Key]]></item>
-		<item name="wcf.acp.option.akismet_api_key.description"><![CDATA[Sie müssen sich einen API Key auf der Akismet Seite holen: <a href="https://akismet.com/signup/">https://akismet.com/signup/</a>]]></item>
+		<item name="wcf.acp.option.akismet_api_key.description"><![CDATA[Sie müssen sich einen API Key auf der Akismet Seite holen: <a href="{@$__wcf->getPath('wcf')}acp/dereferrer.php?url={"https://akismet.com/signup/"|rawurlencode}" class="externalURL">https://akismet.com/signup/</a>]]></item>
 		<item name="wcf.acp.option.module_system_akismet"><![CDATA[Akismet]]></item>
-		<item name="wcf.acp.option.module_system_akismet.description"><![CDATA[Mit diesem Modul werden Nachrichten, Signaturen und Pinnwandeinträge mit dem <a href="https://akismet.com/">Akismet Service</a> auf Spam überprüft.]]></item>
+		<item name="wcf.acp.option.module_system_akismet.description"><![CDATA[Mit diesem Modul werden Nachrichten, Signaturen und Pinnwandeinträge mit dem <a href="{@$__wcf->getPath('wcf')}acp/dereferrer.php?url={"https://akismet.com/"|rawurlencode}" class="externalURL">Akismet Service</a>.]]></item>
 	</category>
 </language>
