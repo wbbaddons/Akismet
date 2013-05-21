@@ -15,9 +15,6 @@
 
 	<requiredpackages>
 		<requiredpackage minversion="2.0.0 Alpha 1">com.woltlab.wcf</requiredpackage>
-		<requiredpackage minversion="1.0.0 Alpha 1">com.woltlab.wcf.message</requiredpackage>
-		<requiredpackage minversion="1.0.0 Alpha 1">com.woltlab.wcf.user</requiredpackage>
-		<requiredpackage minversion="1.0.0 Alpha 1">com.woltlab.wcf.moderation</requiredpackage>
 	</requiredpackages>
 
 	<instructions type="install">
