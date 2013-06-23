@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/language.xsd" languagecode="it">
+  <!-- ACP -->
+  <category name="wcf.acp.option">
+		<item name="wcf.acp.option.akismet_api_key"><![CDATA[Chiave API]]></item>
+		<item name="wcf.acp.option.akismet_api_key.description"><![CDATA[È necessario ottenere una chiave API dal sito Akismet: <a href="{@$__wcf->getPath('wcf')}acp/dereferrer.php?url={"https://akismet.com/signup/"|rawurlencode}" class="externalURL">https://akismet.com/signup/</a>]]></item>
+		<item name="wcf.acp.option.module_system_akismet"><![CDATA[Akismet]]></item>
+		<item name="wcf.acp.option.module_system_akismet.description"><![CDATA[Questo modulo fa un controllo dello spam per i messaggi, le firme e le voci della bacheca con la <a href="{@$__wcf->getPath('wcf')}acp/dereferrer.php?url={"https://akismet.com/"|rawurlencode}" class="externalURL">Akismet service</a>.]]></item>
+	</category>
+</language>
